@@ -77,11 +77,13 @@ class Tank {
     }
 
     void animateObjectsThread(std::vector<std::shared_ptr<PriDrawable> > & objects, int id, int threadCount, std::vector<bool> & finish) { 
+        BehaviorController behave;
         while(true) {
             if(!finish[id]) {
                 if(id == 0) {
                     if(objects[0] != nullptr) {
                         objects[0]->animate();
+                        objects[0]->access(behave);
                     }
                 }
                 else {

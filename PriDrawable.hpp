@@ -2,6 +2,7 @@
 #define PRIDRAWABLE
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
+#include "BehaviorController.hpp"
 #include <vector>
 #include <memory>
 #include <string>
@@ -27,7 +28,9 @@ class PriDrawable : public sf::Sprite {
         currentTextureIndex = 0;
     }
 
-
+    virtual void access(BehaviorController &behave) {
+        behave.visit(*this);
+    }
 
     uint32_t generateRandom() {
         static uint32_t x = 123456789;

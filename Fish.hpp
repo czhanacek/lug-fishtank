@@ -120,6 +120,11 @@ class Fish : public PriDrawable {
         }
     }
 
+    virtual void access(BehaviorController &behave) {
+        behave.visit(*this);
+    }
+
+
     void animate() {
         ticks = (ticks + 1) % 60;
         updateHealth();

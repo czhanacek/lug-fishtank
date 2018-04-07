@@ -30,6 +30,10 @@ class BackgroundWater : public PriDrawable {
         //resetToDefaultTexture();
     }
 
+    virtual void access(BehaviorController &behave) {
+        behave.visit((*this));
+    }
+
     void addFrameToTextures() {
         mtx.lock();
         auto newBackground = regenerate();

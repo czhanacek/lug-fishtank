@@ -76,6 +76,10 @@ class WebcamPassthrough : public PriDrawable {
         
     }
 
+    virtual void access(BehaviorController &behave) {
+        behave.visit(*this);
+    }
+
     void animate() {
 
         // auto thing = sf::seconds(1);
